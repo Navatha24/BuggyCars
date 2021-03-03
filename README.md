@@ -7,6 +7,7 @@
 
 * Functional Testing
 
+
 ## Test Approach
 
 * Functional testing for BuggyCars application will be carried out by an agile development team using Specification By Example (SBE) or Behaviour Driven Development (BDD) approach. 
@@ -15,6 +16,14 @@
 * After the acceptance criteria is defined, agile development team collaborates to write and review specifications using a domain specific language (DSL). These specifications are expressed in the form of testable scenarios
 and any misunderstandings or assumptions related to the feature are clarified while writing these scenarios.
 * Specifications written are then translated into automated scenarios using a BDD Cucumber framework (https://en.wikipedia.org/wiki/Cucumber_(software)). These automated scenarios are integrated into CI/CD pipeline to achieve continuous delivery.
+
+## Features
+
+1. Login
+2. Logout
+3. Register
+4. Profile - Save
+5. Cars Ranking
 
 ## Sample Feature
 ```
@@ -40,7 +49,7 @@ Feature: Login
 * Java 8
 * Maven
 * IntelliJ IDEA
-* Google Chrome ```Version 88.0.4324.192 (Official Build) (x86_64)``` and chrome webdriver ```ChromeDriver 88.0.4324.96```
+* Google Chrome ```Version 88.0.4324.192 (Official Build) (x86_64)``` and chrome webdriver ```ChromeDriver 88.0.4324.96``` ```npm install chromedriver && chromedriver --version```
 * Any command line terminal (iTerm2 for Mac)
 
 ## Run tests using maven
@@ -76,5 +85,5 @@ mvn test -Dcucumber.options="--tags @login,@register"
 
 * Using IntelliJ import cloned buggycars project
 * Goto ```IntellijIDEA>Preferences>Plugins```. Install cucumber support plugin ```Cucumber for Java```
-* Run tests using RunCukeTest class in testrunner
+* Run tests using RunCukeTest class in testrunner folder
 
