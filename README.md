@@ -45,9 +45,9 @@ Feature: Login
 ```
 ## Prerequisites
 
-* Operating System (Tested on Mac)
+* Mac Operating System
 * Java 8
-* Maven
+* Maven 3+
 * IntelliJ IDEA
 * Google Chrome ```Version 88.0.4324.192 (Official Build) (x86_64)``` and chrome webdriver ```ChromeDriver 88.0.4324.96``` ```npm install chromedriver && chromedriver --versiongi```
 * Any command line terminal (iTerm2 for Mac)
