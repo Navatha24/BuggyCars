@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features"},
         glue = {"stepdefinitions"},
         snippets = SnippetType.CAMELCASE,
-        plugin = {"pretty", "html:target/Cucumber", "json:target/cucumber.json"}
+        plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber.json"},
+        monochrome = true
 )
 public class RunCukeTest extends BaseFixture {
 }

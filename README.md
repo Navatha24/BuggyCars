@@ -23,6 +23,7 @@ and any misunderstandings or assumptions related to the feature are clarified wh
 * Maven
 * IntelliJ IDEA
 * IntelliJ IDEA Cucumber plugin
+* Google Chrome and chrome webdriver
 
 ## Run tests
 
@@ -40,4 +41,4 @@ and any misunderstandings or assumptions related to the feature are clarified wh
 * Run the tests
     ```mvn clean test```
 
-  
+## Cucumber Reporting
