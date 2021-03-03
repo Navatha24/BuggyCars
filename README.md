@@ -1,63 +1,39 @@
 # BuggyCars Testing
 
+## Testing Types in Scope
+
+* Functional Testing
+
+## Test Approach
+
+* Functional testing for BuggyCars application will be carried out by an agile development team using Specification By Example (SBE) or Behaviour Driven Development (BDD) approach. 
+* Functionality or expected behaviour of the application is specified by defining features and specifications.
+* High level acceptance criteria for a feature should be defined by the business representative even before writing specifications.
+* After the acceptance criteria is defined, agile development team collaborates to write and review specifications using a domain specific language (DSL). These specifications are expressed in the form of testable scenarios
+and any misunderstandings or assumptions related to the feature are clarified while writing these scenarios.
+* Specifications written are then translated into automated scenarios using a BDD framework (Cucumber). These automated scenarios are integrated into CI/CD pipeline to achieve continuous delivery.
 
 ## Prerequisites
 
+* Mac Operating System
 * Java 8
 * Maven
 * IntelliJ IDEA
 * IntelliJ IDEA Cucumber plugin
 
-## Get the source code
+## Instructions to Run
 
-Git:
+* Clone the project
 
-    git clone 
-    cd 
+    ```git clone https://github.com/Navatha24/BuggyCars.git```
 
-## Use Maven
+* Install the dependencies
 
-Open a command window and run:
+    ````
+    cd BuggyCars
+    mvn clean install
+    ````
+* Run the tests
+    ```mvn clean test```
 
-    ./mvnw test
-
-This runs Cucumber features using Cucumber's JUnit runner. The `@RunWith(Cucumber.class)` annotation on the 
-`RunCucumberTest` class tells JUnit to kick off Cucumber.
-
-
-## Overriding options
-
-Using Maven:
-
-    mvn -Dcucumber.features="..." -Dcucumber.glue="..." test
-
-For available options and overriding rules, please consult the following Maven command:
-
-    mvn exec:java \
-      -Dexec.classpathScope=test \
-      -Dexec.mainClass=io.cucumber.core.cli.Main \
-      -Dexec.args="--help"
-
-### Run a subset of Features or Scenarios
-
-Specify a particular scenario by *line*
-
-    -Dcucumber.features="classpath:skeleton/belly.feature:4"
-
-This works because Maven puts `./src/test/resources` on your `classpath`.
-You can also specify files to run by filesystem path:
-
-    -Dcucumber.features="src/test/resources/skeleton/belly.feature:4"
-
-In case you have many feature files or scenarios to run against, separate them with commas `,`
-
-    -Dcucumber.features="src/test/resources/skeleton/belly.feature:4, src/test/resources/skeleton/stomach.feature"
-
-You can also specify what to run by *tag*:
-
-    -Dcucumber.filter.tags="@bar"
-
-### Running only the scenarios that failed in the previous run
-
-    -Dcucumber.features="@target/rerun.txt"
-
+  

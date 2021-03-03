@@ -1,13 +1,11 @@
 package stepdefinitions;
 
 import cucumber.api.DataTable;
-import cucumber.api.java.After;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import fixture.BaseFixture;
-import org.openqa.selenium.support.ui.Wait;
-import pages.BRHomePage;
 import pages.BRLoginPage;
 import pages.BRRegistrationPage;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -25,22 +23,19 @@ public class RegistrationStepDefinitions extends BaseFixture {
         brRegistrationPage.isRegistrationpageDisplayed();
     }
 
-    @Given("^I enter registration details$")
+    @And("^I enter registration details$")
     public void i_enter_registration_details(DataTable registrationDetails) throws Throwable {
-        brRegistrationPage.isRegistrationpageDisplayed();
         brRegistrationPage.enterRegistrationDetails(registrationDetails);
     }
 
     @When("^I register$")
     public void i_register() throws Throwable {
         brRegistrationPage=brRegistrationPage.clickRegister();
-
     }
 
     @Then("^am registered successfully with confirmation message \"([^\"]*)\"$")
     public void am_registered_successfully_with_confirmation_message(String message) throws Throwable {
-        assertThat(message, is(brRegistrationPage.displaySuccessMessage()));
+        assertThat(brRegistrationPage.displaySuccessMessage(), is(message));
     }
-
 
 }

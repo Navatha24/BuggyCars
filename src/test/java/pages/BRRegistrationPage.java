@@ -9,7 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.List;
 
 public class BRRegistrationPage extends PageObject {
@@ -54,6 +53,7 @@ public class BRRegistrationPage extends PageObject {
     public void  enterRegistrationDetails(DataTable table){
 
         List<List<String>> data = table.raw();
+
         usernameTextBox.sendKeys(data.get(1).get(1)+getRandomNumber());
         firstNameTextBox.sendKeys(data.get(2).get(1));
         lastNameTextBox.sendKeys(data.get(3).get(1));
@@ -64,6 +64,7 @@ public class BRRegistrationPage extends PageObject {
     public String displaySuccessMessage(){
         WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector(".result.alert.alert-success"))));
+
         return registrationSuccessMessage.getText();
     }
 
@@ -76,4 +77,5 @@ public class BRRegistrationPage extends PageObject {
     protected ExpectedCondition<?> pageIsLoaded(Object... params) {
         return ExpectedConditions.visibilityOf(registrationPage);
     }
+
 }

@@ -14,14 +14,13 @@ Feature: Login
       | admin    |
       | admin2   |
 
-  @ignore
   Scenario Outline: UnSuccessful login
     Given am on BuggyRates loginpage
     And I enter invalid username "<username>" or password "<password>"
     When I attempt to login
     Then am not logged in successfully
-    #And I can view the error message "<errormessage>"
+    And I can view the error message "<errormessage>"
     Examples:
       | username | password   | errormessage              |
-      | admin    | Navatha    | invalid username/password |
-      | adminx   | Navatha24$ | invalid username/password |
+      | admin    | Navatha    | Invalid username/password |
+      | adminx   | Navatha24$ | Invalid username/password |

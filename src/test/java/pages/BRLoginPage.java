@@ -20,7 +20,7 @@ public class BRLoginPage extends PageObject {
 	@FindBy(xpath = "//input[@name='password']")
 	private WebElement passwordTextBox;
 
-	@FindBy(css = ".span.label.label-warning")
+	@FindBy(css = "span.label.label-warning")
 	private WebElement errorMessage;
 
 	@FindBy(css = ".btn.btn-success-outline")
@@ -50,8 +50,9 @@ public class BRLoginPage extends PageObject {
 	}
 
 	public String getErrorMessageForInvalidLogin() {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector(".span.label.label-warning"))));
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector("span.label.label-warning"))));
+
 		return errorMessage.getText();
 	}
 
@@ -60,20 +61,9 @@ public class BRLoginPage extends PageObject {
 		passwordTextBox.sendKeys(password);
 	}
 
-	public boolean isElementPresent(By by) {
-		try {
-			driver.findElement(by);
-			return true;
-		}
-		catch (org.openqa.selenium.NoSuchElementException e) {
-			return false;
-		}
-	}
-
 	@Override
 	protected ExpectedCondition<?> pageIsLoaded(Object... params) {
 		return ExpectedConditions.visibilityOf(loginButton);
 	}
-
 
 }

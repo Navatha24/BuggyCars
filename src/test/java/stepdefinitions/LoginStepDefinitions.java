@@ -8,7 +8,6 @@ import cucumber.api.java.en.When;
 import fixture.BaseFixture;
 import pages.BRHomePage;
 import pages.BRLoginPage;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -50,12 +49,13 @@ public class LoginStepDefinitions extends BaseFixture {
 
     @Then("^am not logged in successfully$")
     public void am_not_logged_in_successfully() throws Throwable {
+        assertThat(brLoginPage.isLogInButtonDisplayed(), is(true));
         errorMessage = brLoginPage.getErrorMessageForInvalidLogin();
     }
 
     @And("^I can view the error message \"([^\"]*)\"$")
-    public void i_can_view_the_error_message(String errormessage) throws Throwable {
-        assertThat(errorMessage, is(errormessage));
+    public void i_can_view_the_error_message(String message) throws Throwable {
+        assertThat(errorMessage, is(message));
     }
 
     @After("@logout")
@@ -63,6 +63,5 @@ public class LoginStepDefinitions extends BaseFixture {
         brLoginPage = brHomePage.clickLogout();
         assertThat(brLoginPage.isLogInButtonDisplayed(), is(true));
     }
-
 
 }
