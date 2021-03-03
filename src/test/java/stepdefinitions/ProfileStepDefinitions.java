@@ -19,19 +19,19 @@ public class ProfileStepDefinitions extends BaseFixture {
     private BRLoginPage brLoginPage;
     private BRHomePage brHomePage;
     private BRProfilePage brProfilePage;
+    private String username="admin";
+    private String password="Navatha24$";
 
     @Given("^am logged in as BuggyRates user$")
     public void am_logged_in_as_BuggyRates_user() throws Throwable {
         brLoginPage=navigateToBRLoginPage();
-        brLoginPage.enterLoginDetails("admin","Navatha24$");
+        brLoginPage.enterLoginDetails(username,password);
+        brHomePage=brLoginPage.clickLogin();
     }
 
     @And("^profile additional info hobby is updated to \"([^\"]*)\"$")
     public void profile_additional_info_hobby_is_updated_to(String updatedHobby) throws Throwable {
-        brHomePage=brLoginPage.clickLogin();
         brProfilePage=brHomePage.clickProfile();
-        assertThat(brProfilePage.isAdditionalInfoDisplayed(), is(true));
-
         brProfilePage.updateHobby(updatedHobby);
     }
 
@@ -45,29 +45,27 @@ public class ProfileStepDefinitions extends BaseFixture {
         assertThat(brProfilePage.getConfirmationMessage(),is(message));
 
         brLoginPage=brHomePage.clickLogout();
-        assertThat(brLoginPage.isLogInButtonDisplayed(), is(true));
     }
 
     @Given("^I relogin as BuggyRates user$")
     public void i_relogin_as_BuggyRates_user() throws Throwable {
         brLoginPage=navigateToBRLoginPage();
-        brLoginPage.enterLoginDetails("admin","Navatha24$");
+        brLoginPage.enterLoginDetails(username,password);
         brHomePage=brLoginPage.clickLogin();
     }
 
     @When("^I view updated profile hobby info$")
     public void i_view_updated_profile_hobby_info() throws Throwable {
         brProfilePage=brHomePage.clickProfile();
-        String message=brProfilePage.getDefaultHobbyDisplay();
     }
 
-    @Then("^hobby is displayed as \"([^\"]*)\" by default$")
+    @Then("^hobby is displayed as \"([^\"]*)\"$")
     public void hobby_is_displayed_as_by_default(String message) throws Throwable {
         assertThat(brProfilePage.getDefaultHobbyDisplay(),is(message));
     }
 
-    @After("@default")
-    public void defaultSetUp(){
+    @After("@resetprofile")
+    public void resetSetUp(){
         brProfilePage.updateHobby("Hiking");
         brProfilePage.clickSave();
         brLoginPage=brHomePage.clickLogout();

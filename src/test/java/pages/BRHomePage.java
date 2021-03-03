@@ -47,9 +47,9 @@ public class BRHomePage extends PageObject {
 		registeredUserLink.get(2).click();
 	}
 
-    public HashMap<String,String>listOfallElements() {
+    public HashMap<String,String>getListOfCars() {
 
-		HashMap<String,String> modelData=new HashMap<>();
+		HashMap<String,String> CarData=new HashMap<>();
 
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOfElementLocated((By.cssSelector("table.cars.table.table-hover"))));
@@ -63,10 +63,11 @@ public class BRHomePage extends PageObject {
 			for (int j = 0; j <colVals.size(); j++) {
 				colValue = colValue+colVals.get(j).getText()+";;";
 			}
-			modelData.put(i+"",colValue);
+			CarData.put(i+"",colValue);
 		}
+
 		//System.out.println("Car Table Data:"+modelData);
-		return modelData;
+		return CarData;
 	}
 
 	@Override

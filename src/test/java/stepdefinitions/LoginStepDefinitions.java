@@ -16,6 +16,7 @@ public class LoginStepDefinitions extends BaseFixture {
     private BRHomePage brHomePage;
     private BRLoginPage brLoginPage;
     private String errorMessage;
+    private String password="Navatha24$";
 
     @Given("^am on BuggyRates loginpage$")
     public void amOnBuggyRatesLoginpage() throws Throwable {
@@ -24,7 +25,7 @@ public class LoginStepDefinitions extends BaseFixture {
 
     @Given("^I enter username \"([^\"]*)\" and password$")
     public void iEnterUsernameAndPassword(String username) throws Throwable {
-        brLoginPage.enterLoginDetails(username, "Navatha24$");
+        brLoginPage.enterLoginDetails(username, password);
     }
 
     @When("^I login$")

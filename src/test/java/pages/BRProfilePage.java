@@ -28,10 +28,6 @@ public class BRProfilePage extends PageObject {
         super(driver);
     }
 
-    public boolean isAdditionalInfoDisplayed() {
-        return additionalInfo.isDisplayed();
-    }
-
     public void updateHobby(String updatedHobby) {
         Select hobbyList=new Select(hobby);
         hobbyList.selectByVisibleText(updatedHobby);

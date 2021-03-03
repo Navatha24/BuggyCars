@@ -3,7 +3,6 @@ Feature: Registered Models Ranking
   I want to view the Rank of all registered models
   so that I can buy number 1 registered model
 
-
   Scenario: Ranking of registered models
     Given am on BuggyRates homepage
     When I view the list of all registered models

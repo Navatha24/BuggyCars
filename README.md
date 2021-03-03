@@ -1,5 +1,8 @@
 # BuggyCars Testing
 
+## Application
+* https://buggy.justtestit.org
+
 ## Testing Types in Scope
 
 * Functional Testing
@@ -11,23 +14,24 @@
 * High level acceptance criteria for a feature should be defined by the business representative even before writing specifications.
 * After the acceptance criteria is defined, agile development team collaborates to write and review specifications using a domain specific language (DSL). These specifications are expressed in the form of testable scenarios
 and any misunderstandings or assumptions related to the feature are clarified while writing these scenarios.
-* Specifications written are then translated into automated scenarios using a BDD framework (Cucumber). These automated scenarios are integrated into CI/CD pipeline to achieve continuous delivery.
+* Specifications written are then translated into automated scenarios using a BDD Cucumber framework (https://en.wikipedia.org/wiki/Cucumber_(software)). These automated scenarios are integrated into CI/CD pipeline to achieve continuous delivery.
 
 ## Prerequisites
 
-* Mac Operating System
+* Operating System (Tested on Mac)
 * Java 8
 * Maven
 * IntelliJ IDEA
 * IntelliJ IDEA Cucumber plugin
 
-## Instructions to Run
+## Run tests
 
-* Clone the project
+* Clone the repo in github directory on your computer
 
     ```git clone https://github.com/Navatha24/BuggyCars.git```
 
-* Install the dependencies
+
+* Install the maven dependencies
 
     ````
     cd BuggyCars
