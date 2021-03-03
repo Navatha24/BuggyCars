@@ -1,6 +1,6 @@
 # BuggyCars Testing
 
-## Application
+## Application Under Test
 * https://buggy.justtestit.org
 
 ## Testing Types in Scope
@@ -16,29 +16,65 @@
 and any misunderstandings or assumptions related to the feature are clarified while writing these scenarios.
 * Specifications written are then translated into automated scenarios using a BDD Cucumber framework (https://en.wikipedia.org/wiki/Cucumber_(software)). These automated scenarios are integrated into CI/CD pipeline to achieve continuous delivery.
 
+## Sample Feature
+```
+Feature: Login
+  As a Buggy Cars Rating existing user
+  I want to login
+  so that I can view buggy ratings
+
+  
+  Scenario Outline: Successful login
+    Given am on BuggyRates loginpage
+    And I enter username "<username>" and password
+    When I login
+    Then am logged in successfully
+    Examples:
+      | username |
+      | admin    |
+      | admin2   |
+```
 ## Prerequisites
 
 * Operating System (Tested on Mac)
 * Java 8
 * Maven
 * IntelliJ IDEA
-* IntelliJ IDEA Cucumber plugin
-* Google Chrome and chrome webdriver
+* Google Chrome ```Version 88.0.4324.192 (Official Build) (x86_64)``` and chrome webdriver ```ChromeDriver 88.0.4324.96```
+* Any command line terminal (iTerm2 for Mac)
 
-## Run tests
+## Run tests using maven
 
 * Clone the repo in github directory on your computer
 
     ```git clone https://github.com/Navatha24/BuggyCars.git```
 
-
-* Install the maven dependencies
+* Use Maven to install dependencies and run tests using command line terminal
 
     ````
     cd BuggyCars
-    mvn clean install
+    ./mvnw test or mvn clean install or mvn clean test
     ````
-* Run the tests
-    ```mvn clean test```
+This runs Cucumber features using Cucumber's JUnit test runner. The @RunWith(Cucumber.class) annotation on the RunCukeTest class in test runner folder tells JUnit to kick off Cucumber.
 
-## Cucumber Reporting
+* Run a subset of Features or Scenarios using command line terminal
+
+```` 
+mvn -Dcucumber.options="src/test/resources/features/login.feature"
+mvn test -Dcucumber.options="--tags @login"
+mvn test -Dcucumber.options="--tags @login,@register"
+````
+## Living Documentation
+
+* Generate a pdf living documentation for this application 
+```
+ mvn cukedoctor:execute
+ ```
+* Generated pdf document at ```/path/to/target/docs```
+
+## Run tests using IntelliJ
+
+* Using IntelliJ import cloned buggycars project
+* Goto ```IntellijIDEA>Preferences>Plugins```. Install cucumber support plugin ```Cucumber for Java```
+* Run tests using RunCukeTest class in testrunner
+

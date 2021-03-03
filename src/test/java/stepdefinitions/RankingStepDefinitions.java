@@ -36,7 +36,7 @@ public class RankingStepDefinitions extends BaseFixture {
         carsMap = brHomePage.getListOfCars();
     }
 
-    @Then("^the registered models are displayed in descending order of the rank$")
+    @Then("^the buggy cars registered models are displayed in descending order of the rank$")
     public void the_registered_models_are_displayed_in_descending_order_of_the_rank() throws Throwable {
 
         String[] carDataFirstRow = carsMap.get("1").split(";;");

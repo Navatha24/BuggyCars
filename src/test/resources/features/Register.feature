@@ -1,3 +1,4 @@
+@register
 Feature: Register
   As a Buggy Cars Rating new user
   I want to register

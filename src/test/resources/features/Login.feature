@@ -1,3 +1,4 @@
+@login
 Feature: Login
   As a Buggy Cars Rating existing user
   I want to login

@@ -50,15 +50,19 @@ public class BRRegistrationPage extends PageObject {
         return new BRRegistrationPage(driver);
     }
 
-    public void  enterRegistrationDetails(DataTable table){
+    public String  enterRegistrationDetails(DataTable table){
 
         List<List<String>> data = table.raw();
 
-        usernameTextBox.sendKeys(data.get(1).get(1)+getRandomNumber());
+        String username= data.get(1).get(1)+getRandomNumber();
+
+        usernameTextBox.sendKeys(username);
         firstNameTextBox.sendKeys(data.get(2).get(1));
         lastNameTextBox.sendKeys(data.get(3).get(1));
         passwordTextBox.sendKeys(data.get(4).get(1));
         confirmPasswordTextBox.sendKeys(data.get(5).get(1));
+
+        return username;
     }
 
     public String displaySuccessMessage(){

@@ -7,4 +7,4 @@ Feature: Registered Models Ranking
     Given am on BuggyRates homepage
     When I view the list of all registered models
     Then the registered model with maximum votes gets a rank of '1'
-    And the registered models are displayed in descending order of the rank
+    And the buggy cars registered models are displayed in descending order of the rank
