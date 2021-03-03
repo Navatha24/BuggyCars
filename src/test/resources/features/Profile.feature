@@ -9,7 +9,7 @@ Feature: Profile Updates
     Then changes are saved with confirmation message "The profile has been saved successful"
 
   @resetprofile
-  Scenario: Relogin to view updated changes to Profile
+  Scenario: Re-login to view updated changes to Profile
     Given I relogin as BuggyRates user
     When I view updated profile hobby info
     Then hobby is displayed as "Drawing"

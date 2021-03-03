@@ -34,8 +34,8 @@ public class RegistrationStepDefinitions extends BaseFixture {
     }
 
     @Then("^am registered successfully with confirmation message \"([^\"]*)\"$")
-    public void am_registered_successfully_with_confirmation_message(String message) throws Throwable {
-        assertThat(brRegistrationPage.displaySuccessMessage(), is(message));
+    public void am_registered_successfully_with_confirmation_message(String expectedMessage) throws Throwable {
+        assertThat(brRegistrationPage.displaySuccessMessage(), is(expectedMessage));
     }
 
 }

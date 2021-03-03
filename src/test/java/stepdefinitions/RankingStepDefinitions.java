@@ -1,15 +1,12 @@
 package stepdefinitions;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import fixture.BaseFixture;
 import pages.BRHomePage;
 import pages.BRLoginPage;
-
-import java.util.*;
-
+import java.util.HashMap;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertEquals;
@@ -42,6 +39,7 @@ public class RankingStepDefinitions extends BaseFixture {
         String[] carDataFirstRow = carsMap.get("1").split(";;");
         String[] carDataSecondRow = carsMap.get("2").split(";;");
         String[] carDataThirdRow = carsMap.get("3").split(";;");
+
         int rankOneCarVotes = Integer.parseInt(carDataFirstRow[4]);
         int rankSecondCarVotes = Integer.parseInt(carDataSecondRow[4]);
         int rankThirdCarVotes = Integer.parseInt(carDataThirdRow[4]);
@@ -54,6 +52,7 @@ public class RankingStepDefinitions extends BaseFixture {
     public void the_registered_model_with_maximum_votes_gets_a_rank_of(int rank) throws Throwable {
         String[] carDataFirstRow = carsMap.get("1").split(";;");
         int rowOneCarRank = Integer.parseInt(carDataFirstRow[3]);
+
         assertEquals(rowOneCarRank, rank);
     }
 

@@ -51,12 +51,12 @@ public class LoginStepDefinitions extends BaseFixture {
     @Then("^am not logged in successfully$")
     public void am_not_logged_in_successfully() throws Throwable {
         assertThat(brLoginPage.isLogInButtonDisplayed(), is(true));
-        errorMessage = brLoginPage.getErrorMessageForInvalidLogin();
     }
 
     @And("^I can view the error message \"([^\"]*)\"$")
-    public void i_can_view_the_error_message(String message) throws Throwable {
-        assertThat(errorMessage, is(message));
+    public void i_can_view_the_error_message(String expectedMessage) throws Throwable {
+        errorMessage = brLoginPage.getErrorMessageForInvalidLogin();
+        assertThat(errorMessage, is(expectedMessage));
     }
 
     @After("@logout")
