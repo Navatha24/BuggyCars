@@ -49,7 +49,7 @@ Feature: Login
 * Java 8
 * Maven 3+
 * IntelliJ IDEA
-* Google Chrome ```Version 88.0.4324.192 (Official Build) (x86_64)``` and chrome webdriver ```ChromeDriver 88.0.4324.96``` ```npm install chromedriver && chromedriver --versiongi```
+* Google Chrome ```Version 88.0.4324.192 (Official Build) (x86_64)``` and chrome webdriver ```ChromeDriver 88.0.4324.96``` ```npm install chromedriver && chromedriver --version```
 * Any command line terminal (iTerm2 for Mac)
 
 ## Run tests using maven
